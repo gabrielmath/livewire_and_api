@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Models\Usuario;
 use Livewire\Volt\Volt;
 
 test('login screen can be rendered', function () {
@@ -12,7 +12,7 @@ test('login screen can be rendered', function () {
 });
 
 test('users can authenticate using the login screen', function () {
-    $user = User::factory()->create();
+    $user = Usuario::factory()->create();
 
     $component = Volt::test('pages.auth.login')
         ->set('form.email', $user->email)
@@ -28,7 +28,7 @@ test('users can authenticate using the login screen', function () {
 });
 
 test('users can not authenticate with invalid password', function () {
-    $user = User::factory()->create();
+    $user = Usuario::factory()->create();
 
     $component = Volt::test('pages.auth.login')
         ->set('form.email', $user->email)
@@ -44,7 +44,7 @@ test('users can not authenticate with invalid password', function () {
 });
 
 test('navigation menu can be rendered', function () {
-    $user = User::factory()->create();
+    $user = Usuario::factory()->create();
 
     $this->actingAs($user);
 
@@ -56,7 +56,7 @@ test('navigation menu can be rendered', function () {
 });
 
 test('users can logout', function () {
-    $user = User::factory()->create();
+    $user = Usuario::factory()->create();
 
     $this->actingAs($user);
 

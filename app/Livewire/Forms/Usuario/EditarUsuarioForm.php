@@ -2,40 +2,40 @@
 
 namespace App\Livewire\Forms\Usuario;
 
-use App\Models\User;
+use App\Models\Usuario;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class EditarUsuarioForm extends Form
 {
-    public ?User $user;
+    public ?Usuario $usuario;
 
     #[Rule(['required', 'min:3', 'max:100'])]
-    public ?string $name = null;
+    public ?string $nome = null;
 
     public ?string $email = null;
 
-    public function setUser(User $user): void
+    public function setUser(Usuario $usuario): void
     {
-        $this->user = $user;
-        $this->name = $user->name;
+        $this->usuario = $usuario;
+        $this->nome = $user->nome;
         $this->email = $user->email;
     }
 
     public function save(): void
     {
         $this->validateOnly('email', [
-            'email' => ['required', 'string', 'email', "unique:users,email,{$this->user->id},id"],
+            'email' => ['required', 'string', 'email', "unique:users,email,{$this->usuario->id},id"],
         ]);
 
         $this->validate();
 
-        $this->user->update([
-            'name' => $this->name,
+        $this->usuario->update([
+            'nome' => $this->nome,
             'email' => $this->email,
         ]);
 
-        $this->reset(['user', 'name', 'email']);
+        $this->reset(['usuario', 'nome', 'email']);
     }
 }

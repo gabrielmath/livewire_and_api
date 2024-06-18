@@ -13,10 +13,10 @@ Route::view('dashboard', 'dashboard')
 
 Route::get('/usuarios', ListaUsuarios::class)->name('lista-usuarios');
 Route::get('/criar-usuarios', CriarUsuario::class)->name('criar-usuarios');
-Route::get('/editar-usuario/{user}', EditarUsuario::class)->name('editar-usuario');
+Route::get('/editar-usuario/{usuario}', EditarUsuario::class)->name('editar-usuario');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

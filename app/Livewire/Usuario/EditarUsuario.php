@@ -3,7 +3,7 @@
 namespace App\Livewire\Usuario;
 
 use App\Livewire\Forms\Usuario\EditarUsuarioForm;
-use App\Models\User;
+use App\Models\Usuario;
 use Livewire\Component;
 
 class EditarUsuario extends Component
@@ -15,7 +15,7 @@ class EditarUsuario extends Component
         return view('livewire.usuario.editar-usuario');
     }
 
-    public function mount(User $user)
+    public function mount(Usuario $user)
     {
         $this->form->setUser($user);
     }

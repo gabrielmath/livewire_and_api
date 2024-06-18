@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Forms\Usuario;
 
-use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Rule;
@@ -12,27 +12,27 @@ use Livewire\Form;
 class CriarUsuarioForm extends Form
 {
     #[Rule(['required', 'min:3', 'max:100'])]
-    public ?string $name = null;
+    public ?string $nome = null;
 
     #[Rule(['required', 'email', 'min:3', 'max:100'])]
     public ?string $email = null;
 
     #[Rule(['required', 'min:8', 'confirmed'])]
-    public ?string $password = null;
+    public ?string $senha = null;
 
     #[Rule(['required', 'min:8'])]
-    public ?string $password_confirmation = null;
+    public ?string $senha_confirmation = null;
 
     public function save()
     {
         $this->validate();
 
-        User::create([
-            'name' => $this->name,
+        Usuario::create([
+            'nome' => $this->nome,
             'email' => $this->email,
-            'password' => $this->password,
+            'senha' => $this->senha,
         ]);
 
-        $this->reset(['name', 'email', 'password', 'password_confirmation']);
+        $this->reset(['nome', 'email', 'senha', 'senha_confirmation']);
     }
 }

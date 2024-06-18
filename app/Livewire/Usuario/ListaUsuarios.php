@@ -2,18 +2,19 @@
 
 namespace App\Livewire\Usuario;
 
-use App\Models\User;
+use App\Models\Usuario;
 use Livewire\Component;
 
 /**
- * @property-read User $usuario
+ * @property-read Usuario $usuario
  */
 class ListaUsuarios extends Component
 {
     public $usuarios = null;
+
     public function render()
     {
-        $this->usuarios = User::get();
+        $this->usuarios = Usuario::get();
         return view('livewire.usuario.lista-usuarios');
     }
 }

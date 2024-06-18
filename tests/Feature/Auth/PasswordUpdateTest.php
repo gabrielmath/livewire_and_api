@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Auth;
 
-use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt;
 
 test('password can be updated', function () {
-    $user = User::factory()->create();
+    $user = Usuario::factory()->create();
 
     $this->actingAs($user);
 
@@ -25,7 +25,7 @@ test('password can be updated', function () {
 });
 
 test('correct password must be provided to update password', function () {
-    $user = User::factory()->create();
+    $user = Usuario::factory()->create();
 
     $this->actingAs($user);
 
