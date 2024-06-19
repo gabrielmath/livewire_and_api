@@ -19,6 +19,6 @@ class CriarUsuario extends Component
 //        $this->form->validate();
         $this->form->save();
 
-        return redirect()->route('lista-usuarios');
+        return redirect()->route('usuarios.listar');
     }
 }

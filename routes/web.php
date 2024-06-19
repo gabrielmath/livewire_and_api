@@ -11,9 +11,15 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::get('/usuarios', ListaUsuarios::class)->name('lista-usuarios');
-Route::get('/criar-usuarios', CriarUsuario::class)->name('criar-usuarios');
-Route::get('/editar-usuario/{usuario}', EditarUsuario::class)->name('editar-usuario');
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('usuarios')->name('usuarios.')->group(function () {
+        Route::get('/', ListaUsuarios::class)->name('listar');
+        Route::get('/criar', CriarUsuario::class)->name('criar');
+        Route::get('/{usuario}/editar', EditarUsuario::class)->name('editar');
+    });
+});
+
+
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

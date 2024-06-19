@@ -4,6 +4,7 @@ namespace App\Livewire\Forms\Usuario;
 
 use App\Models\Usuario;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
@@ -25,6 +26,7 @@ class CriarUsuarioForm extends Form
 
     public function save()
     {
+        Auth::user();
         $this->validate();
 
         Usuario::create([

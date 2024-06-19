@@ -1,7 +1,8 @@
-<div class="pt-16">
+<x-container.content-area>
   <div class="mb-6 flex justify-end">
-    <a href="{{ route('criar-usuarios') }}" wire.navigate class="ms-4">
-      {{ __('Register') }}
+    <a href="{{ route('usuarios.criar') }}" wire.navigate class="ms-4">
+      <x-heroicon-s-plus class="h-5 w-5"/>
+      {{ __('Usuário') }}
     </a>
   </div>
 
@@ -33,8 +34,10 @@
             {{--<livewire:usuario.editar-usuario :$user="$usuario" :$key="$usuario->id">
               Editar
             </livewire:usuario.editar-usuario>--}}
-            <a href="{{ route('editar-usuario', $usuario->id) }}"
-               class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+            <a wire:navigate href="{{ route('usuarios.editar', ['usuario' => $usuario->usuario_id]) }}"
+               class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+              <x-heroicon-s-pencil class="w-5 h-5"/>
+            </a>
           </td>
         </tr>
       @empty
@@ -43,4 +46,4 @@
       </tbody>
     </table>
   </div>
-</div>
+</x-container.content-area>

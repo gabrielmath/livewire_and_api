@@ -19,14 +19,14 @@ class EditarUsuarioForm extends Form
     public function setUser(Usuario $usuario): void
     {
         $this->usuario = $usuario;
-        $this->nome = $user->nome;
-        $this->email = $user->email;
+        $this->nome = $usuario->nome;
+        $this->email = $usuario->email;
     }
 
     public function save(): void
     {
         $this->validateOnly('email', [
-            'email' => ['required', 'string', 'email', "unique:users,email,{$this->usuario->id},id"],
+            'email' => ['required', 'string', 'email', "unique:usuarios,email,{$this->usuario->usuario_id},usuario_id"],
         ]);
 
         $this->validate();

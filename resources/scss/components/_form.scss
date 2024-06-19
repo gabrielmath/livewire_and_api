@@ -1,0 +1,25 @@
+.form-label {
+  @apply block mb-2 text-sm font-medium;
+
+  &:not(.label-error) {
+    @apply text-gray-900 dark:text-white;
+  }
+
+  &.label-error {
+    @apply text-red-700 dark:text-red-500;
+  }
+}
+
+.form-input {
+  @apply border text-sm rounded-lg block w-full p-2.5;
+
+  &:not(.input-error) {
+    @apply bg-gray-50 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500;
+    @apply dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+
+  &.input-error {
+    @apply bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500;
+    @apply dark:bg-gray-700 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500;
+  }
+}

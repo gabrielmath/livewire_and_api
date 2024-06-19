@@ -15,9 +15,9 @@ class EditarUsuario extends Component
         return view('livewire.usuario.editar-usuario');
     }
 
-    public function mount(Usuario $user)
+    public function mount(Usuario $usuario)
     {
-        $this->form->setUser($user);
+        $this->form->setUser($usuario);
     }
 
     public function submit()
@@ -25,6 +25,6 @@ class EditarUsuario extends Component
 //        $this->form->validate();
         $this->form->save();
 
-        return redirect()->route('lista-usuarios');
+        return redirect()->route('usuarios.listar');
     }
 }
