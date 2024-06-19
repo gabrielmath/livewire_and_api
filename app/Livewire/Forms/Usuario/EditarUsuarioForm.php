@@ -26,7 +26,7 @@ class EditarUsuarioForm extends Form
     public function save(): void
     {
         $this->validateOnly('email', [
-            'email' => ['required', 'string', 'email', "unique:usuarios,email,{$this->usuario->usuario_id},usuario_id"],
+            'email' => ['required', 'max:100', 'email', "unique:usuarios,email,{$this->usuario->usuario_id},usuario_id"],
         ]);
 
         $this->validate();
