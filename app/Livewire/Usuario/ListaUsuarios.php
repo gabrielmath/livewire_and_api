@@ -3,6 +3,7 @@
 namespace App\Livewire\Usuario;
 
 use App\Models\Usuario;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 /**
@@ -12,6 +13,7 @@ class ListaUsuarios extends Component
 {
     public $usuarios = null;
 
+    #[On('usuario-excluido')]
     public function render()
     {
         $this->usuarios = Usuario::get();

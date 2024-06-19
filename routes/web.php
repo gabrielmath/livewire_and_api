@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Home\PainelPrincipal;
 use App\Livewire\Usuario\CriarUsuario;
 use App\Livewire\Usuario\EditarUsuario;
 use Illuminate\Support\Facades\Route;
@@ -7,18 +8,19 @@ use App\Livewire\Usuario\ListaUsuarios;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
+/*Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('dashboard');*/
+//Route::get('dashboard', fn() => redirect(route('dashboard')))->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard', PainelPrincipal::class)->name('dashboard');
     Route::prefix('usuarios')->name('usuarios.')->group(function () {
         Route::get('/', ListaUsuarios::class)->name('listar');
         Route::get('/criar', CriarUsuario::class)->name('criar');
         Route::get('/{usuario}/editar', EditarUsuario::class)->name('editar');
     });
 });
-
 
 
 Route::view('profile', 'profile')
