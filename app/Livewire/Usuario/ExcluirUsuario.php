@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ExcluirUsuario extends Component
 {
-    public ?Usuario $usuario = null;
+    public Usuario $usuario;
 
     public function mount(Usuario $usuario)
     {
@@ -22,6 +22,8 @@ class ExcluirUsuario extends Component
     public function excluir(): void
     {
         $this->usuario->delete();
+
+        $this->js("alert('Usuário excluído com sucesso!')");
 
         $this->dispatch('usuario-excluido');
     }

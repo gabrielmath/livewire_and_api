@@ -26,7 +26,6 @@ class CriarUsuarioForm extends Form
 
     public function save()
     {
-        Auth::user();
         $this->validate();
 
         Usuario::create([

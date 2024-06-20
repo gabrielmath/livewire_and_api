@@ -4,19 +4,31 @@ namespace App\Livewire\Usuario;
 
 use App\Models\Usuario;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 use Livewire\Component;
+use Livewire\WithoutUrlPagination;
+use Livewire\WithPagination;
 
 /**
  * @property-read Usuario $usuario
  */
 class ListaUsuarios extends Component
 {
-    public $usuarios = null;
+    use WithPagination;
 
-    #[On('usuario-excluido')]
+    #[Url]
+    public string $pesquisar = '';
+
+    #[On(['usuario-excluido'])]
     public function render()
     {
-        $this->usuarios = Usuario::get();
-        return view('livewire.usuario.lista-usuarios');
+        return view('livewire.usuario.lista-usuarios', [
+            'usuarios' => Usuario::where('nome', 'LIKE', "%{$this->pesquisar}%")->paginate(2),
+        ]);
+    }
+
+    public function search()
+    {
+        $this->resetPage();
     }
 }

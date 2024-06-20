@@ -8,11 +8,6 @@ use App\Livewire\Usuario\ListaUsuarios;
 
 Route::view('/', 'welcome');
 
-/*Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');*/
-//Route::get('dashboard', fn() => redirect(route('dashboard')))->name('dashboard');
-
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', PainelPrincipal::class)->name('dashboard');
     Route::prefix('usuarios')->name('usuarios.')->group(function () {

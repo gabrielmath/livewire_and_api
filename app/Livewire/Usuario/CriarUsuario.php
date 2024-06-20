@@ -16,7 +16,6 @@ class CriarUsuario extends Component
 
     public function submit()
     {
-//        $this->form->validate();
         $this->form->save();
 
         return redirect()->route('usuarios.listar');

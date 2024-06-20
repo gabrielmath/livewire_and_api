@@ -13,6 +13,16 @@
     </a>
   </div>
 
+  <div class=" mb-4">
+    <x-form.input
+      wire:model.live="pesquisar"
+      wire:keydown="search"
+      error-to="pesquisar"
+      id="pesquisar"
+      label="Pesquisar"
+    />
+  </div>
+
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-600 dark:text-gray-300">
@@ -30,7 +40,7 @@
       </thead>
       <tbody class="bg-white border-b dark:bg-gray-700 dark:border-gray-700">
       @forelse($usuarios as $usuario)
-        <tr>
+        <tr wire:key="{{ $usuario->usuario_id }}">
           <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
             {{ $usuario->nome }}
           </td>
@@ -60,5 +70,8 @@
       @endforelse
       </tbody>
     </table>
+    <div class="mt-4">
+      {{ $usuarios->links() }}
+    </div>
   </div>
 </x-container.content-area>
