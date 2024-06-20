@@ -23,7 +23,7 @@ class ListaUsuarios extends Component
     public function render()
     {
         return view('livewire.usuario.lista-usuarios', [
-            'usuarios' => Usuario::where('nome', 'LIKE', "%{$this->pesquisar}%")->paginate(2),
+            'usuarios' => Usuario::where('nome', 'LIKE', "%{$this->pesquisar}%")->with('empresas')->paginate(5),
         ]);
     }
 
