@@ -1,4 +1,5 @@
 <x-container.content-area>
+
   <div class="mb-6 flex justify-between">
     <h1 class="text-gray-800 dark:text-gray-300 text-2xl">
       Lista de Empresas -
@@ -9,8 +10,8 @@
       @endif
     </h1>
     <a
-      wire.navigate
-      href="{{ $linkCriarEmpresa }}"
+      wire:navigate
+      href="{{ route('empresas.criar', ['usuario' => $usuario?->usuario_id]) }}"
       class="ms-4 p-1 text-sm flex items-center space-x-1 bg-gray-300 dark:bg-gray-700 dark:text-gray-200 rounded hover:bg-gray-100 dark:hover:bg-gray-600 transition-all"
     >
       <x-heroicon-s-plus class="h-5 w-5"/>
@@ -68,14 +69,14 @@
             {{--<livewire:usuario.editar-usuario :$user="$empresa" :$key="$empresa->id">
               Editar
             </livewire:usuario.editar-usuario>--}}
-            {{--<a
-                    wire:navigate
-                    href="{{ route('usuarios.editar', ['usuario' => $empresa->usuario_id]) }}"
-                    class="p-1 rounded text-white bg-gray-600 dark:bg-gray-500 hover:bg-gray-400 dark:hover:bg-gray-400 transition-all"
-                    title="Editar"
+            <a
+              wire:navigate
+              href="{{ route('empresas.editar', ['empresa' => $empresa->empresa_id]) }}"
+              class="p-1 rounded text-white bg-gray-600 dark:bg-gray-500 hover:bg-gray-400 dark:hover:bg-gray-400 transition-all"
+              title="Editar"
             >
                 <x-heroicon-s-pencil-square class="w-5 h-5"/>
-            </a>--}}
+            </a>
 
             {{--@if(auth()->user()->usuario_id !== $empresa->usuario_id)
                 <livewire:usuario.excluir-usuario :$empresa :key="$empresa->usuario_id"/>

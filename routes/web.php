@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Empresa\CriarEmpresa;
+use App\Livewire\Empresa\EditarEmpresa;
 use App\Livewire\Empresa\ListaEmpresas;
 use App\Livewire\Home\PainelPrincipal;
 use App\Livewire\Usuario\CriarUsuario;
@@ -22,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('empresas')->name('empresas.')->group(function () {
         Route::get('/listar/{usuario?}', ListaEmpresas::class)->name('listar');
         Route::get('/criar/{usuario?}', CriarEmpresa::class)->name('criar');
-//        Route::get('/{empresa}/editar/{usuario?}', EditarUsuario::class)->name('editar');
+        Route::get('/{empresa}/editar', EditarEmpresa::class)->name('editar');
     });
 });
 

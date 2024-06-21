@@ -5,13 +5,13 @@
         <label for="usuario" class="form-label {{ $errors->has('form.usuario_id') ? 'label-error' : '' }}">
           Sócio Proprietário
         </label>
-{{--        @dd($form->usuario_id)--}}
+        {{--        @dd($form->usuario_id)--}}
         <select
           wire:model="form.usuario_id"
           id="usuario"
           class="form-input {{ $errors->has('form.usuario_id') ? 'input-error' : '' }}"
         >
-{{--          <option disabled>Selecione...</option>--}}
+          {{--          <option disabled>Selecione...</option>--}}
           @foreach($usuarios as $usuario)
             <option value="{{ $usuario->usuario_id }}">{{ $usuario->nome }}</option>
           @endforeach
@@ -31,7 +31,7 @@
 
     <div class="flex items-center justify-end mt-4">
       <x-primary-button class="ms-4">
-        {{ __('Cadastrar') }}
+        {{ __('Salvar') }}
       </x-primary-button>
     </div>
   </form>

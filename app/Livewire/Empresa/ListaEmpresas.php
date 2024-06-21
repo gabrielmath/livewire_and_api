@@ -44,10 +44,11 @@ class ListaEmpresas extends Component
             ->when($this->pesquisar, function ($query, $pesquisar) {
                 $query->where('cnpj', 'LIKE', "%{$pesquisar}%")
                     ->orWhere('nome_fantasia', 'LIKE', "%{$pesquisar}%")
-                    ->orWhere('razao_social', 'LIKE', "%{$pesquisar}%");
+                    ->orWhere('razao_social', 'LIKE', "%{$pesquisar}%")
+                    ->orWhereHas('usuario', function ($q) use ($pesquisar) {
+                        $q->where('nome', 'LIKE', "%{$pesquisar}%");
+                    });
             });
-
-//        dd($linkCriarEmpresa);
 
 
         return view('livewire.empresa.lista-empresas', [
@@ -55,4 +56,14 @@ class ListaEmpresas extends Component
             'empresas' => $empresas->get(),
         ]);
     }
+
+    /*public function criar(?int $usuario_id = null): void
+    {
+        $this->dispatch('criar-empresa', usuario_id: $usuario_id);
+    }
+
+    public function editar(int $empresa_id): void
+    {
+        $this->dispatch('editar-empresa', empresa_id: $empresa_id);
+    }*/
 }
