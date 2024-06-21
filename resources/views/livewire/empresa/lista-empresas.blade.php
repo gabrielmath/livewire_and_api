@@ -66,21 +66,16 @@
             {{ $empresa->usuario->nome }}
           </td>
           <td class="px-6 py-4 flex items-center space-x-2">
-            {{--<livewire:usuario.editar-usuario :$user="$empresa" :$key="$empresa->id">
-              Editar
-            </livewire:usuario.editar-usuario>--}}
             <a
               wire:navigate
               href="{{ route('empresas.editar', ['empresa' => $empresa->empresa_id]) }}"
               class="p-1 rounded text-white bg-gray-600 dark:bg-gray-500 hover:bg-gray-400 dark:hover:bg-gray-400 transition-all"
               title="Editar"
             >
-                <x-heroicon-s-pencil-square class="w-5 h-5"/>
+              <x-heroicon-s-pencil-square class="w-5 h-5"/>
             </a>
 
-            {{--@if(auth()->user()->usuario_id !== $empresa->usuario_id)
-                <livewire:usuario.excluir-usuario :$empresa :key="$empresa->usuario_id"/>
-            @endif--}}
+            <livewire:empresa.excluir-empresas :$empresa :key="$empresa->empresa_id"/>
           </td>
         </tr>
       @empty

@@ -5,6 +5,7 @@ namespace App\Livewire\Empresa;
 use App\Models\Empresa;
 use App\Models\Usuario;
 use Illuminate\Database\Query\Builder;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
@@ -26,6 +27,7 @@ class ListaEmpresas extends Component
         $this->usuario = $usuario;
     }
 
+    #[On('empresa-excluida')]
     public function render()
     {
         $empresas = Empresa::with('usuario');

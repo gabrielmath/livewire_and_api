@@ -13,8 +13,7 @@ class EditarEmpresaForm extends Form
 
     #[Validate(['required', 'numeric'])]
     public $usuario_id = null;
-
-    #[Rule(['required', 'min:14', 'max:14', 'unique:empresas,cnpj'])]
+    
     public ?string $cnpj = null;
 
     #[Validate(['required', 'min:3', 'max:100'])]

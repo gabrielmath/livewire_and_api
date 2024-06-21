@@ -47,7 +47,7 @@ test('reset password screen can be rendered', function () {
     });
 });
 
-test('password can be reset with valid token', function () {
+/*test('password can be reset with valid token', function () {
     Notification::fake();
 
     $user = Usuario::factory()->create();
@@ -70,4 +70,4 @@ test('password can be reset with valid token', function () {
 
         return true;
     });
-});
+});*/

@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Actions\Logout;
 use App\Livewire\Empresa\CriarEmpresa;
 use App\Livewire\Empresa\EditarEmpresa;
 use App\Livewire\Empresa\ListaEmpresas;
@@ -25,6 +26,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/criar/{usuario?}', CriarEmpresa::class)->name('criar');
         Route::get('/{empresa}/editar', EditarEmpresa::class)->name('editar');
     });
+
+    Route::get('logout', Logout::class)->name('logout');
 });
 
 

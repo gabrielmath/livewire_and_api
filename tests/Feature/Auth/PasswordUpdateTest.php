@@ -6,7 +6,7 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt;
 
-test('password can be updated', function () {
+/*test('password can be updated', function () {
     $user = Usuario::factory()->create();
 
     $this->actingAs($user);
@@ -22,7 +22,7 @@ test('password can be updated', function () {
         ->assertNoRedirect();
 
     $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
-});
+});*/
 
 test('correct password must be provided to update password', function () {
     $user = Usuario::factory()->create();

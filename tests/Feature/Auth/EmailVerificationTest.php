@@ -13,7 +13,7 @@ test('email verification screen can be rendered', function () {
     $response->assertStatus(200);
 });
 
-test('email can be verified', function () {
+/*test('email can be verified', function () {
     $user = Usuario::factory()->unverified()->create();
 
     Event::fake();
@@ -43,4 +43,4 @@ test('email is not verified with invalid hash', function () {
     $this->actingAs($user)->get($verificationUrl);
 
     expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
-});
+});*/

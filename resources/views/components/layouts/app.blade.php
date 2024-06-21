@@ -1,20 +1,4 @@
-<?php
-
-use App\Livewire\Actions\Logout;
-use Livewire\Volt\Component;
-
-new class extends Component {
-  /**
-   * Log the current user out of the application.
-   */
-  public function logout(Logout $logout): void
-  {
-    $logout();
-
-    redirect('/');
-  }
-}; ?>
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="utf-8">
@@ -78,10 +62,12 @@ new class extends Component {
             </div>
             <ul class="py-1" role="none">
               <li>
-                <button wire:click="logout"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a
+                  wire:navigate
+                  href="{{ route('logout') }}"
+                  class="w-full items-start block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                   Sign out
-                </button>
+                </a>
               </li>
             </ul>
           </div>

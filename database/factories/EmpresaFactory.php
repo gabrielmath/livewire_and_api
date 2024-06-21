@@ -35,7 +35,7 @@ class EmpresaFactory extends Factory
         $totalUsuarios = $this->totalUsuarios();
 
         return [
-            'usuario_id' => ($totalUsuarios > 0 ? rand(1, $totalUsuarios) : Usuario::factory()),
+            'usuario_id' => ($totalUsuarios > 0 ? rand(1, $totalUsuarios):Usuario::factory()),
             'cnpj' => $this->geraCnpj(14),
             'nome_fantasia' => $this->faker->company,
             'razao_social' => "{$this->faker->company} {$this->faker->companySuffix}",
@@ -50,7 +50,7 @@ class EmpresaFactory extends Factory
     private function geraCnpj($limit)
     {
         $code = 0;
-        for ($i = 0; $i < $limit; $i++) {
+        for ($i = 0; $i < $limit - 1; $i++) {
             $code .= mt_rand(0, 9);
         }
         return $code;
